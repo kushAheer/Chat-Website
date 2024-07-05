@@ -12,9 +12,9 @@
                 "debug"
             ],
             "runtimeExecutable": "npm",
-            // "skipFiles": [
-            //     "<node_internals>/**"
-            // ],
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
             "type": "node",
             "cwd": "${workspaceFolder}/Backend"
         },

@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { register } from "../Controllers/UserController.js";
+import { register , login  , logout} from "../Controllers/UserController.js";
 
 const router = Router();
 
 
 router.post('/signup', register);
-router.post('/login');
-router.post('logout');
+router.post('/login',login);
+router.post('/logout',logout);
 
 export default router;
