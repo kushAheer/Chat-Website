@@ -1,0 +1,46 @@
+.waveGroup {
+    position: relative;
+  }
+  
+  .input {
+    font-size: 16px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #9606a0;
+    background: transparent;
+  }
+  
+  .input:focus {
+    outline: none;
+  }
+  
+  .label {
+    
+    font-size: 14px;
+    font-weight: normal;
+    
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    display: flex;
+  }
+  
+  /* .labelChar {
+    transition: 0.2s ease all;
+    transition-delay: calc(var(--index) * .05s);
+  }
+  
+    .labelChar {
+        transform: translateY(-20px);
+        font-size: 14px;
+        color: #5264AE;
+    }
+  
+  .bar {
+    position: relative;
+    display: block;
+    width: 200px;
+  } */
+  
