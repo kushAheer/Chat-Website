@@ -5,7 +5,7 @@ function Input(props) {
         <>
             <div className={`${classes.waveGroup}`}>
                 <label className={`${classes.label}`}>{props.label}</label>
-                <input required="" type="text" className={`${classes.input}`}/>
+                <input required value={props.val} type={props.type} onChange={props.onChange} className={`${classes.input}`}/>
                 
             </div>
         </>

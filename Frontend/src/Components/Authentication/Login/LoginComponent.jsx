@@ -1,39 +1,55 @@
 import React from 'react'
 import Input from '../../UI/Input/Input'
 import Button from '../../UI/Button/Button'
-import Spline from '../../UI/Spline/Spline'
-import SplineUi from '../../UI/Spline/Spline'
 import classes from './LoginComponent.module.css'
 import hoverImage from './loginImage.png'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import useLogin from '../../../Hooks/useLogin'
 
 function LoginComponent() {
+  const {loading , login} = useLogin();
+  const [loginData, setLoginData] = useState({
+    userName: '',
+    Password: '',
+  });
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+   
+    const res = await login(loginData);
+    console.log(res);
+  }
+
+
   return (
     <>
-      <section class="vh-100">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-6 text-black pt-2">
-              <div class={`${classes.loginForm} pt-5`}>
-                <form className='pt-5' style={{ width: "60%" }}>
+      <section className="vh-100">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-6 text-black pt-2">
+              <div className={`${classes.loginForm} pt-5`}>
+                <form className='pt-5' style={{ width: "60%" }} onSubmit={submitHandler} >
                   <div className='formTitle'>
                     <h1>Hello,<br></br>Welcome Back</h1>
                   </div>
                   <div className='formItem pt-5'>
-                    <div class="form-outline mb-4">
-                      <Input label='Username' />
+                    <div className="form-outline mb-4">
+                      <Input label='Username' type={'text'} val={loginData.userName} onChange={(e) => setLoginData({ ...loginData, userName: e.target.value })} />
                     </div>
-                    <div data-mdb-input-init class="form-outline mb-4">
-                      <Input label={"Password"} />
+                    <div className="form-outline mb-4">
+                      <Input label={"Password"} type={'password'} val={loginData.Password} onChange={(e) => setLoginData({ ...loginData, Password: e.target.value })} />
                     </div>
-                    <Button p={"pt-3"} >Login</Button>
+                    <Button p={"pt-3"} >{loading ? <>Submiting....</> : <>Login</>}</Button>
                   </div>
                 </form>
                 <div className='pt-5'>
-                  <p>Do Not Have Account ? Sign Up</p>
+                  <p>Do Not Have Account ? <Link to={'/signup'}>Sign Up</Link></p>
                 </div>
               </div>
             </div>
-            <div class="col-md-6 px-0 d-none d-sm-none d-md-block pt-2 ">
+            <div className="col-md-6 px-0 d-none d-sm-none d-md-block pt-2 ">
               <div className="container pt-2">
 
                 <img src={hoverImage} alt="Login image" className={`${classes.img}`} />

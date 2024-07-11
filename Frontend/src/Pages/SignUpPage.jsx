@@ -1,11 +1,15 @@
 import React from 'react'
+import { useState } from 'react'
+import RegisterComponent from '../Components/Authentication/Register/RegisterComponent'
+import { Form } from 'react-router-dom'
 
 const SignUpPage = () => {
   return (
-    <div>
-      <h1>Sign Up Page</h1>
-    </div>
+    <>
+      <RegisterComponent />
+    </>
   )
 }
 
 export default SignUpPage
+

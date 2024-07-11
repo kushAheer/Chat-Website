@@ -1,0 +1,8 @@
+.chatList{
+    height: 90vh;
+    
+    overflow: auto;
+}
+.rightBorder{
+    border-right: inset;
+}

@@ -1,0 +1,22 @@
+.left {
+    background-image: linear-gradient(rgb(80,188,184), rgb(145,127,221));
+    height: 50%;
+    border-top-left-radius: 20px;
+    border-radius: 20px;
+}
+
+.right {}
+
+.img{
+    border-radius: 50px;
+    width: 100%;
+    height: 95vh;
+}
+
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+}

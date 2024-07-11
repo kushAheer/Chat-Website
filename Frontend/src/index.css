@@ -1,0 +1,7 @@
+img{
+    width: 45px;
+    height: 100%;
+}
+::-webkit-scrollbar{
+    display: none;
+}

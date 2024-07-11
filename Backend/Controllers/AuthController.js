@@ -6,10 +6,10 @@ import bcrypt from "bcrypt";
 export const register = async (req, res) => {
     try{
 
-        const { fullName , userName  , Email, Password, Gender ,profilePicture} = req.body;
+        const { fullName , userName  , Email, Password,profilePicture} = req.body;
 
         
-        if(Email === "" || Password === "" || fullName === "" || userName === ""){
+        if(Email === undefined || Password === undefined || fullName === undefined || userName === undefined){
             return res.status(400).json({
                 message : "Please fill all the fields"
             });
@@ -38,6 +38,7 @@ export const register = async (req, res) => {
         if(user){
             
             return res.status(409).json({
+                
                 message : "User or Email already exists"
             })
         }
@@ -51,7 +52,6 @@ export const register = async (req, res) => {
             userName,
             Email,
             Password : hashPassword,
-            Gender,
             profilePicture : "",
             
         });
@@ -73,7 +73,8 @@ export const register = async (req, res) => {
             secure : true
         })
         
-        return res.status(201).json({
+        return res.status(200).json({
+            status: 200,
             message : "User Registered Successfully"
         })
         
@@ -90,7 +91,7 @@ export const login = async (req, res) => {
         
         const {userName, Password} = req.body;
 
-        if(userName === "" || Password === ""){
+        if(userName === undefined || Password === undefined){
             return res.status(400).json({
                 message : "Please fill all the fields"
             });
@@ -110,7 +111,7 @@ export const login = async (req, res) => {
                 message : "Invalid Password"
             })
         }
-        const token = user.generateToken();
+        const token = await user.generateToken();
 
         user.token = token;
 
@@ -124,6 +125,7 @@ export const login = async (req, res) => {
         })
 
         return res.status(200).json({
+            status : 200,
             message : "User Logged In Successfully",
             userData : {
                 _id : user._id,

@@ -8,7 +8,7 @@ export const getUsers = async (req, res) => {
 
         const allUser = await User.find({ _id: { $ne: logedInUserId } }).select("-Password -token"); //get all user that are not equal to login in user
 
-        return res.status(200).json(allUser);
+        return res.status(200).json({status : 200 , userList : allUser});
         
         
     } catch (error) {
