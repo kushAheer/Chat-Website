@@ -35,7 +35,7 @@ export const sendMessage = async (req, res) => {
         //saving the conversation and the message same time
         await Promise.all([conservationBetween.save(),newMessage.save()]);
 
-        return res.status(200).json({message: "Message sent", success: true , data : newMessage});
+        return res.status(200).json({status : 200 ,message: "Message sent", success: true , data : newMessage});
 
     }catch(error){
         return res.status(500).json({message: error.message, success: false});

@@ -6,3 +6,9 @@
 .rightBorder{
     border-right: inset;
 }
+.bg{
+    background-color: #f0f0f0; 
+}
+.activeChat:hover{
+    background-color: #f0f0f0;
+}

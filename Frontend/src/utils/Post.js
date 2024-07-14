@@ -20,3 +20,14 @@ export const loginRequest = async (data)=>{
     });
     return response.json();
 }
+
+export const sendMessageRequest = async (data)=>{
+    const response = await fetch(`/api/messages/send/${id}`,{
+        method : 'POST',
+        headers : {
+            'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify(data)
+    });
+    return response.json();
+}
