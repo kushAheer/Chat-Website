@@ -1,8 +1,9 @@
-import { set } from 'mongoose';
-import React from 'react'
+
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import conversationSlice from '../Context/Slices/ConversationSlice';
+import toast from 'react-hot-toast';
+import { sendMessageRequest } from '../utils/Post.js';
 
 
 function useSendMessage() {
@@ -18,11 +19,12 @@ function useSendMessage() {
             const response = await sendMessageRequest(data,id);
             if(response.status === 200){
                 dispatch(conversationSlice.actions.setConversations(response.message));
+                
             }else{
                 toast.error(response.message);
             }
-        }catch{
-            toast.error(response.message);
+        }catch(error){
+            toast.error(error.message);
 
         }finally{
             setLoading(false);

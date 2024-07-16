@@ -21,7 +21,7 @@ export const loginRequest = async (data)=>{
     return response.json();
 }
 
-export const sendMessageRequest = async (data)=>{
+export const sendMessageRequest = async (data,id)=>{
     const response = await fetch(`/api/messages/send/${id}`,{
         method : 'POST',
         headers : {

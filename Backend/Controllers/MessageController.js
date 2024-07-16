@@ -56,9 +56,9 @@ export const getMessages = async (req, res) => {
         }).populate("messages");
 
         if(!conservationBetween){
-            return res.status(200).json([]);
+            return res.status(200).json({  status : 200, message : "No messages yet", success : true , data : []});
         }
-        return res.status(200).json({message: "Messages fetched", success: true , data : conservationBetween});
+        return res.status(200).json({status : 200 ,message: "Messages fetched", success: true , data : conservationBetween});
         
     } catch (error) {
         return res.status(500).json({message: error.message, success: false});

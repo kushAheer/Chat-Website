@@ -24,7 +24,7 @@ function ChatList() {
                         <input type='search' className='form-control' placeholder='Search' />
                     </div>
                     <div className="col-md-4 pt-3">
-                        <ul class="navbar-nav">
+                        <ul className="navbar-nav">
                             <li className="dropdown">
                                 <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     Hi , User
