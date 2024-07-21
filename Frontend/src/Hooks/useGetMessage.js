@@ -12,9 +12,13 @@ function useGetMessage() {
     const [data , setData] = useState();
     
     const id = useSelector((state) => state.conversations.selectedConversation);
+
+    const refetchTrigger = useSelector((state)=>state.conversations.getMessageTrigger);
+    
     const dispatch = useDispatch();
     useEffect(()=>{
         const getMessage = async () => {
+            
             setLoading(true);
             try {
                 
@@ -38,10 +42,11 @@ function useGetMessage() {
             }
         }
         if(id){
+
             getMessage();
         }
         
-    },[id , dispatch]);
+    },[id ,dispatch ,refetchTrigger ]);
     
     return { loading, data };
 }

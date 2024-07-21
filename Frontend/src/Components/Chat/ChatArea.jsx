@@ -14,11 +14,9 @@ function ChatArea() {
 
     return (
         <>
-
             {!selected && <DefaultChatArea />}
             {selected && <MessageBox />}
                 
-
         </>
     )
 }

@@ -2,8 +2,9 @@
     height: 85vh;
     
     align-items: end;
-    
-    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: scroll;
 }
 .chatItem{
     display: flex;

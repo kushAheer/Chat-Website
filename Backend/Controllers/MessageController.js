@@ -1,5 +1,8 @@
 import Conversation from "../Models/ConversationModel.js";
 import Message from "../Models/MessagesModel.js";
+import { getReciverSocketId, io } from "../SocketIo/Socket.js";
+
+
 
 export const sendMessage = async (req, res) => {
     try {
@@ -7,7 +10,7 @@ export const sendMessage = async (req, res) => {
         const { message } = req.body;
         const senderId = req.user._id;
 
-        const conservationBetween = await Conversation.findOne({
+        let conservationBetween = await Conversation.findOne({
             members : {
                 $all : [senderId,receiverId]
             }
@@ -33,7 +36,21 @@ export const sendMessage = async (req, res) => {
         
         //await newMessage.save(); below statement is more efficient than this doning seperately
         //saving the conversation and the message same time
+        
         await Promise.all([conservationBetween.save(),newMessage.save()]);
+
+        const reciverSocketId = getReciverSocketId(receiverId);
+        
+        if(reciverSocketId){
+
+            //sending message to the receiver or sending message to a specific user
+
+            io.to(reciverSocketId).emit("newMessage",newMessage)
+        }
+
+
+
+
 
         return res.status(200).json({status : 200 ,message: "Message sent", success: true , data : newMessage});
 

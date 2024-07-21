@@ -15,7 +15,7 @@ import { useSelector } from 'react-redux'
 
 function App() {
     const auth = useSelector((state)=>state.users.token);
-    console.log(auth);
+    
     const routes = createBrowserRouter([
       {path : '/', element: auth ?  <HomePage /> : <Navigate to={'/login'}/>},
       {path : '/login', element: auth ? <Navigate to={'/'}/> : <LoginPage />},

@@ -19,11 +19,13 @@ function useSendMessage() {
             const response = await sendMessageRequest(data,id);
             if(response.status === 200){
                 dispatch(conversationSlice.actions.setConversations(response.message));
-                
+                console.log("Message sent",response);
             }else{
+                console.log("Else Error",response);
                 toast.error(response.message);
             }
         }catch(error){
+            console.log("Catch Error",error); 
             toast.error(error.message);
 
         }finally{

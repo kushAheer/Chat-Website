@@ -5,7 +5,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-        user: localStorage.getItem('userData') || {},
+        user: JSON.parse(localStorage.getItem('userData')) || {},
         token : localStorage.getItem('token') || undefined,
         status: 'invalid',
     },

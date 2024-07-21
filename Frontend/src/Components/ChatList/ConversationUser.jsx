@@ -2,16 +2,18 @@ import React from 'react'
 import classes from './ChatList.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import conversationSlice from '../../Context/Slices/ConversationSlice';
+import { useSocketContext } from '../../Context/useContext/SocketContext';
 
 function ConversationUser(props) {
 
     const disptach = useDispatch();
     const isActive = useSelector((state)=>state.conversations.selectedConversation) === props._id || false;
+    // const conversationsId = useSelector((state)=>state.conversations.selectedConversation);
+    const {onlineUser} = useSocketContext();
     
     
-    
-    
-    
+    const isOnline = onlineUser.includes(props._id);
+
     const selectedHandler = (_id)=>{
 
         disptach(conversationSlice.actions.setSelectedConversation(_id));
@@ -34,7 +36,7 @@ function ConversationUser(props) {
                         </div>
                     </div>
                     <div className="pt-1">
-                        <p className="small text-muted mb-1">Just now</p>
+                        <p className="small text-muted mb-1">{isOnline ? "Online" : "Not Online"}</p>
 
                     </div>
                 </div>
