@@ -17,13 +17,21 @@ function Messages(props) {
     
     const color = right ? classes.bgColor : "bg-body-tertiary";
 
-    
+    const date = new Date(props.createdAt);
+    const readableDate = new Intl.DateTimeFormat('en-US', {
+        
+        month: 'short',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    }).format(date).replace(',', ' |');
     return (
         <>
             <div className={`${fromMe} `}>
                 <div>
                     <p className={`small p-2 ms-3 mb-1 rounded-3 ${color} `}>{props.chat}</p>
-                    <p className="small ms-3 mb-3 rounded-3 text-muted float-end">12:00 PM | Aug 13</p>
+                    <p className="small ms-3 mb-3 rounded-3 text-muted float-end">{readableDate}</p>
                 </div>
             </div>
 

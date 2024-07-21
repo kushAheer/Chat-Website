@@ -67,7 +67,7 @@ function ChatList() {
                         <ul className="navbar-nav">
                             <li className="dropdown">
                                 <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Hi , User
+                                    Hi , {JSON.parse(localStorage.getItem('userData')).userName}
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-dark">
                                     <li><a className="dropdown-item" href="#">Profile</a></li>

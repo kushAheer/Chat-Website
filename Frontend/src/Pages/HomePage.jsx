@@ -28,11 +28,11 @@ function HomePage() {
           <div className="col-md-12">
             <div className="row">
               {isSmallScreen ? ( 
-                isSelected ? <ChatArea /> : <ChatList /> ) :
+                isSelected ? <ChatArea isSmallScreen = {isSmallScreen} /> : <ChatList /> ) :
                 (
                   <>
                     <ChatList />
-                    <ChatArea />
+                    <ChatArea isSmallScreen = {isSmallScreen}/>
                   </>
                 )}
             </div>

@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 import MessageBox from './MessageBox.jsx';
 
-function ChatArea() {
+function ChatArea(props) {
     
     
     const selected = useSelector((state) => state.conversations.selectedConversation);
@@ -15,7 +15,7 @@ function ChatArea() {
     return (
         <>
             {!selected && <DefaultChatArea />}
-            {selected && <MessageBox />}
+            {selected && <MessageBox isSmallScreen = {props.isSmallScreen}/>}
                 
         </>
     )
