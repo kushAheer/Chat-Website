@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Messages from './Messages';
 import useListenMessage from '../../Hooks/useListenMessage';
 import MessageInput from './MessageInput';
+import backImage from '../../assets/left.png'
 
 import conversationSlice, { setTrigger } from '../../Context/Slices/ConversationSlice';
 
@@ -33,8 +34,8 @@ function MessageBox(props) {
     return (
         <>
             <div className={`col-md-6 col-lg-7 col-xl-8 `}>
-                {props.isSmallScreen && <div>
-                    <h1 onClick={backHandler}>Back</h1>
+                {props.isSmallScreen && <div onClick={backHandler}>
+                    <img src={backImage} className='img-fluid'/>
                 </div>}
                 
                 <div className={`pt-3 pe-3 ${classes.chatArea}`} id='sctp'>
@@ -53,7 +54,6 @@ function MessageBox(props) {
                 </div>
                 <div>
                     <MessageInput setRefreshTrigger={changeRefreshTrigger} />
-                    
                 </div>
                 
             </div>

@@ -16,7 +16,7 @@ function MessageInput(props) {
     }
     return (
         <>
-            <form className="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2" onSubmit={sendMessageHandler}>
+            <form className="text-muted d-flex justify-content-start align-items-center pe-3 pt-3 mt-2 mb-3" onSubmit={sendMessageHandler}>
                 <input type="text" className="form-control form-control-lg" id="exampleFormControlInput2"
                     placeholder="Type message" value={message} onChange={(e) => setMessage(e.target.value)} />
                 <button className="btn btn-primary ms-1">Send</button>

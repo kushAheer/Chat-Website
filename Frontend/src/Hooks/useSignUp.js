@@ -2,9 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import toast from 'react-hot-toast';
 import { signUpRequest } from '../utils/Post';
+import {useNavigate} from 'react-router-dom';
 
 function useSignUp() {
   const [loading , setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const signUp = async(data)=>{
 
@@ -15,7 +17,9 @@ function useSignUp() {
         const response = await signUpRequest(data);
         
         if(response.status === 200){
+            navigate("/login");
             toast.success(response.message);
+
         }else{
             toast.error(response.message)
         }

@@ -19,7 +19,7 @@ function useListenMessage() {
 
     useEffect(()=>{
         socket?.on("newMessage",(data)=>{
-            dispatch(conversationSlice.actions.addMessage(data));
+            dispatch(conversationSlice.actions.setConversations(data));
             
             dispatch(setTrigger());
             // setRefreshTrigger((prev) => !prev);
@@ -28,7 +28,7 @@ function useListenMessage() {
         return ()=>{
             socket?.off("newMessage");
         }
-    },[socket,conversationSlice.actions.addMessage,message]);
+    },[socket,conversationSlice.actions.addMessage,message , dispatch]);
 }
 
 export default useListenMessage

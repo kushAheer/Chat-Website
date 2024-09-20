@@ -37,7 +37,6 @@ function ConversationUser(props) {
                     </div>
                     <div className="pt-1">
                         <p className="small text-muted mb-1">{isOnline ? "Online" : "Not Online"}</p>
-
                     </div>
                 </div>
             </div>

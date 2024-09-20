@@ -53,13 +53,13 @@ function ChatList() {
                     <div className='col-md-8 pt-3'>
                         <div className="row">
 
-                        <div className='col-md-8'>
+                        <div className='col-md-8 col-8'>
 
                             <input type='search' className='form-control' placeholder='Search' value={search} onChange={(e) => setSearch(e.target.value)} />
                         </div>
-                        <div className='col-md-4'>
+                        <div className='col-md-4 col-4'>
 
-                            <button onClick={searchHandler}>Search</button>
+                            <button onClick={searchHandler} className={`${classes.search} btn btn-primary`}>Search</button>
                         </div>
                         </div>
                     </div>
@@ -70,16 +70,15 @@ function ChatList() {
                                     Hi , {JSON.parse(localStorage.getItem('userData')).userName}
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-dark">
-                                    <li><a className="dropdown-item" href="#">Profile</a></li>
+                                    {/* <li><a className="dropdown-item" href="#">Profile</a></li> */}
                                     <li><Link className="dropdown-item" onClick={logOutHandler}>Log Out</Link></li>
-
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div className={`col-md-12 pt-3 mb-0 ${classes.chatList}`}>
-                    {data.map((item) => (
+                    {!loading && data.map((item) => (
                         <div key={item._id}>
                             <ConversationUser
 

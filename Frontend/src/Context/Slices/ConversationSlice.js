@@ -25,5 +25,5 @@ const conversationSlice = createSlice({
 });
 
 
-export const {setTrigger} = conversationSlice.actions;
+export const {setTrigger } = conversationSlice.actions;
 export default conversationSlice; 
