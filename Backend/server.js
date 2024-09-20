@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
-import appDbContext from './Db/appDbContext.js';
+import connectDb from './Db/appDbContext.js';
 import authRoutes from './Routes/auth.routes.js';
 import messageRoutes from './Routes/message.routes.js';
 import userRoutes from './Routes/user.routes.js';
@@ -38,7 +38,7 @@ app.get('*', (req, res) => {
 });
 
 server.listen(PORT, () => {
-    appDbContext();
+    connectDb();
     console.log(`Server is running on ${process.env.PRODUCTION_URL}`);
 });
 
