@@ -26,7 +26,7 @@ export const SocketContextProvider = ({ children }) => {
         if (auth) {
             try {
 
-                const socketIo = io("http://localhost:5000", {
+                const socketIo = io("https://chat-website-uf7x.onrender.com", {
                     query: {
                         userId: auth._id,
                     }
