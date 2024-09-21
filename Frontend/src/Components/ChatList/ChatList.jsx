@@ -20,7 +20,7 @@ function ChatList() {
         e.preventDefault();
 
         const s = data.find((item) => item.userName.toLowerCase().includes(search.toLowerCase()));
-        console.log(s);
+        
         if (!s) {
             toast.error("No User Found");
             return;
@@ -42,7 +42,7 @@ function ChatList() {
                 'Content-Type': 'application/json',
             },
         }).then((res) => res.json());
-        console.log(res);
+        
         disptach(userSlice.actions.logedOut());
         
     }

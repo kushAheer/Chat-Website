@@ -26,21 +26,21 @@ export const SocketContextProvider = ({ children }) => {
         if (auth) {
             try {
 
-                const socket = io("http://localhost:5000", {
+                const socketIo = io("http://localhost:5000", {
                     query: {
                         userId: auth._id,
                     }
                 });
-                setSocket(socket);
+                setSocket(socketIo);
 
-                socket.on('onlineUser', (data) => { //getiiing online user from server
+                socketIo.on('onlineUser', (data) => { //getiiing online user from server
                     setOnlineUser(data);
                 });
                 
-                return () => socket.close();
+                return () => socketIo.close();
 
             } catch (err) {
-                console.log(err);
+                
             }
 
 

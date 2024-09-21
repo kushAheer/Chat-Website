@@ -21,7 +21,7 @@ function RegisterComponent() {
     const submitHandler = async (e)=>{
         e.preventDefault();
         const res = await signUp(signupData);
-        console.log(res);
+        
         
 
     }

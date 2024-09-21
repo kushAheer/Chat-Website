@@ -25,7 +25,7 @@ function useSendMessage() {
                 toast.error(response.message);
             }
         }catch(error){
-            console.log("Catch Error",error); 
+            
             toast.error(error.message);
 
         }finally{

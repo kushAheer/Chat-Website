@@ -20,7 +20,7 @@ export const getReciverSocketId = (reciverId) => {
 const userOnline = {}
 
 io.on('connection',(socket)=>{
-    console.log("a user connected",socket.id);
+    
     
     const userId = socket.handshake.query.userId; //getting userId from client side
 
@@ -30,7 +30,7 @@ io.on('connection',(socket)=>{
     io.emit('onlineUser',Object.keys(userOnline));//sending online user to all clients
 
     socket.on('disconnect',()=>{
-        console.log("user disconnected",socket.id);
+        
         
         delete userOnline[userId];
         io.emit('onlineUser',Object.keys(userOnline));

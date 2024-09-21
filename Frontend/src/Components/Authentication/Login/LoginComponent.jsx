@@ -19,7 +19,7 @@ function LoginComponent() {
     e.preventDefault();
    
     const res = await login(loginData);
-    console.log(res);
+    
   }
 
 
