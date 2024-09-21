@@ -36,7 +36,7 @@ function ChatList() {
     const logOutHandler = async () => {
         localStorage.removeItem('userData');
         localStorage.removeItem('token');
-        const res = await fetch('http://localhost:5000/api/auth/logout', {
+        const res = await fetch('https://chat-website-uf7x.onrender.com/api/auth/logout', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
