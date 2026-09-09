@@ -37,8 +37,18 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'Frontend' , 'dist', 'index.html'));
 });
 
-server.listen(PORT, () => {
-    connectDb();
-    console.log(`Server is running on ${process.env.PRODUCTION_URL}`);
-});
+const startServer = async () => {
+    try {
+        await connectDb();
 
+        server.listen(process.env.PORT || 5000, () => {
+            console.log("Server started");
+        });
+
+    } catch (error) {
+        console.error("Failed to start server:", error);
+        process.exit(1);
+    }
+};
+
+startServer();
